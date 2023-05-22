@@ -164286,6 +164286,13 @@ exports[`loader should work with the "material-components-web" package (dart-sas
 .test .mdc-button .mdc-button__ripple::before {
   transition: opacity 15ms linear, background-color 15ms linear;
   z-index: 1;
+  /* @alternate */
+  z-index: var(--mdc-ripple-z-index, 1);
+}
+.test .mdc-button .mdc-button__ripple::after {
+  z-index: 0;
+  /* @alternate */
+  z-index: var(--mdc-ripple-z-index, 0);
 }
 .test .mdc-button.mdc-ripple-upgraded .mdc-button__ripple::before {
   transform: scale(var(--mdc-ripple-fg-scale, 1));
@@ -164324,14 +164331,18 @@ exports[`loader should work with the "material-components-web" package (dart-sas
 .test .mdc-button .mdc-button__ripple::before, .test .mdc-button .mdc-button__ripple::after {
   background-color: #6200ee;
   /* @alternate */
-  background-color: var(--mdc-theme-primary, #6200ee);
+  background-color: var(--mdc-ripple-color, var(--mdc-theme-primary, #6200ee));
 }
-.test .mdc-button:hover .mdc-button__ripple::before {
+.test .mdc-button:hover .mdc-button__ripple::before, .test .mdc-button.mdc-ripple-surface--hover .mdc-button__ripple::before {
   opacity: 0.04;
+  /* @alternate */
+  opacity: var(--mdc-ripple-hover-opacity, 0.04);
 }
 .test .mdc-button.mdc-ripple-upgraded--background-focused .mdc-button__ripple::before, .test .mdc-button:not(.mdc-ripple-upgraded):focus .mdc-button__ripple::before {
   transition-duration: 75ms;
   opacity: 0.12;
+  /* @alternate */
+  opacity: var(--mdc-ripple-focus-opacity, 0.12);
 }
 .test .mdc-button:not(.mdc-ripple-upgraded) .mdc-button__ripple::after {
   transition: opacity 150ms linear;
@@ -164339,9 +164350,11 @@ exports[`loader should work with the "material-components-web" package (dart-sas
 .test .mdc-button:not(.mdc-ripple-upgraded):active .mdc-button__ripple::after {
   transition-duration: 75ms;
   opacity: 0.12;
+  /* @alternate */
+  opacity: var(--mdc-ripple-press-opacity, 0.12);
 }
 .test .mdc-button.mdc-ripple-upgraded {
-  --mdc-ripple-fg-opacity: 0.12;
+  --mdc-ripple-fg-opacity: var(--mdc-ripple-press-opacity, 0.12);
 }
 .test .mdc-button .mdc-button__ripple {
   position: absolute;
@@ -164359,17 +164372,22 @@ exports[`loader should work with the "material-components-web" package (dart-sas
 .test .mdc-button--unelevated .mdc-button__ripple::after {
   background-color: #fff;
   /* @alternate */
-  background-color: var(--mdc-theme-on-primary, #fff);
+  background-color: var(--mdc-ripple-color, var(--mdc-theme-on-primary, #fff));
 }
-.test .mdc-button--raised:hover .mdc-button__ripple::before,
-.test .mdc-button--unelevated:hover .mdc-button__ripple::before {
+.test .mdc-button--raised:hover .mdc-button__ripple::before, .test .mdc-button--raised.mdc-ripple-surface--hover .mdc-button__ripple::before,
+.test .mdc-button--unelevated:hover .mdc-button__ripple::before,
+.test .mdc-button--unelevated.mdc-ripple-surface--hover .mdc-button__ripple::before {
   opacity: 0.08;
+  /* @alternate */
+  opacity: var(--mdc-ripple-hover-opacity, 0.08);
 }
 .test .mdc-button--raised.mdc-ripple-upgraded--background-focused .mdc-button__ripple::before, .test .mdc-button--raised:not(.mdc-ripple-upgraded):focus .mdc-button__ripple::before,
 .test .mdc-button--unelevated.mdc-ripple-upgraded--background-focused .mdc-button__ripple::before,
 .test .mdc-button--unelevated:not(.mdc-ripple-upgraded):focus .mdc-button__ripple::before {
   transition-duration: 75ms;
   opacity: 0.24;
+  /* @alternate */
+  opacity: var(--mdc-ripple-focus-opacity, 0.24);
 }
 .test .mdc-button--raised:not(.mdc-ripple-upgraded) .mdc-button__ripple::after,
 .test .mdc-button--unelevated:not(.mdc-ripple-upgraded) .mdc-button__ripple::after {
@@ -164379,10 +164397,12 @@ exports[`loader should work with the "material-components-web" package (dart-sas
 .test .mdc-button--unelevated:not(.mdc-ripple-upgraded):active .mdc-button__ripple::after {
   transition-duration: 75ms;
   opacity: 0.24;
+  /* @alternate */
+  opacity: var(--mdc-ripple-press-opacity, 0.24);
 }
 .test .mdc-button--raised.mdc-ripple-upgraded,
 .test .mdc-button--unelevated.mdc-ripple-upgraded {
-  --mdc-ripple-fg-opacity: 0.24;
+  --mdc-ripple-fg-opacity: var(--mdc-ripple-press-opacity, 0.24);
 }"
 `;
 
@@ -164676,6 +164696,13 @@ exports[`loader should work with the "material-components-web" package (dart-sas
 .test .mdc-button .mdc-button__ripple::before {
   transition: opacity 15ms linear, background-color 15ms linear;
   z-index: 1;
+  /* @alternate */
+  z-index: var(--mdc-ripple-z-index, 1);
+}
+.test .mdc-button .mdc-button__ripple::after {
+  z-index: 0;
+  /* @alternate */
+  z-index: var(--mdc-ripple-z-index, 0);
 }
 .test .mdc-button.mdc-ripple-upgraded .mdc-button__ripple::before {
   transform: scale(var(--mdc-ripple-fg-scale, 1));
@@ -164714,14 +164741,18 @@ exports[`loader should work with the "material-components-web" package (dart-sas
 .test .mdc-button .mdc-button__ripple::before, .test .mdc-button .mdc-button__ripple::after {
   background-color: #6200ee;
   /* @alternate */
-  background-color: var(--mdc-theme-primary, #6200ee);
+  background-color: var(--mdc-ripple-color, var(--mdc-theme-primary, #6200ee));
 }
-.test .mdc-button:hover .mdc-button__ripple::before {
+.test .mdc-button:hover .mdc-button__ripple::before, .test .mdc-button.mdc-ripple-surface--hover .mdc-button__ripple::before {
   opacity: 0.04;
+  /* @alternate */
+  opacity: var(--mdc-ripple-hover-opacity, 0.04);
 }
 .test .mdc-button.mdc-ripple-upgraded--background-focused .mdc-button__ripple::before, .test .mdc-button:not(.mdc-ripple-upgraded):focus .mdc-button__ripple::before {
   transition-duration: 75ms;
   opacity: 0.12;
+  /* @alternate */
+  opacity: var(--mdc-ripple-focus-opacity, 0.12);
 }
 .test .mdc-button:not(.mdc-ripple-upgraded) .mdc-button__ripple::after {
   transition: opacity 150ms linear;
@@ -164729,9 +164760,11 @@ exports[`loader should work with the "material-components-web" package (dart-sas
 .test .mdc-button:not(.mdc-ripple-upgraded):active .mdc-button__ripple::after {
   transition-duration: 75ms;
   opacity: 0.12;
+  /* @alternate */
+  opacity: var(--mdc-ripple-press-opacity, 0.12);
 }
 .test .mdc-button.mdc-ripple-upgraded {
-  --mdc-ripple-fg-opacity: 0.12;
+  --mdc-ripple-fg-opacity: var(--mdc-ripple-press-opacity, 0.12);
 }
 .test .mdc-button .mdc-button__ripple {
   position: absolute;
@@ -164749,17 +164782,22 @@ exports[`loader should work with the "material-components-web" package (dart-sas
 .test .mdc-button--unelevated .mdc-button__ripple::after {
   background-color: #fff;
   /* @alternate */
-  background-color: var(--mdc-theme-on-primary, #fff);
+  background-color: var(--mdc-ripple-color, var(--mdc-theme-on-primary, #fff));
 }
-.test .mdc-button--raised:hover .mdc-button__ripple::before,
-.test .mdc-button--unelevated:hover .mdc-button__ripple::before {
+.test .mdc-button--raised:hover .mdc-button__ripple::before, .test .mdc-button--raised.mdc-ripple-surface--hover .mdc-button__ripple::before,
+.test .mdc-button--unelevated:hover .mdc-button__ripple::before,
+.test .mdc-button--unelevated.mdc-ripple-surface--hover .mdc-button__ripple::before {
   opacity: 0.08;
+  /* @alternate */
+  opacity: var(--mdc-ripple-hover-opacity, 0.08);
 }
 .test .mdc-button--raised.mdc-ripple-upgraded--background-focused .mdc-button__ripple::before, .test .mdc-button--raised:not(.mdc-ripple-upgraded):focus .mdc-button__ripple::before,
 .test .mdc-button--unelevated.mdc-ripple-upgraded--background-focused .mdc-button__ripple::before,
 .test .mdc-button--unelevated:not(.mdc-ripple-upgraded):focus .mdc-button__ripple::before {
   transition-duration: 75ms;
   opacity: 0.24;
+  /* @alternate */
+  opacity: var(--mdc-ripple-focus-opacity, 0.24);
 }
 .test .mdc-button--raised:not(.mdc-ripple-upgraded) .mdc-button__ripple::after,
 .test .mdc-button--unelevated:not(.mdc-ripple-upgraded) .mdc-button__ripple::after {
@@ -164769,10 +164807,12 @@ exports[`loader should work with the "material-components-web" package (dart-sas
 .test .mdc-button--unelevated:not(.mdc-ripple-upgraded):active .mdc-button__ripple::after {
   transition-duration: 75ms;
   opacity: 0.24;
+  /* @alternate */
+  opacity: var(--mdc-ripple-press-opacity, 0.24);
 }
 .test .mdc-button--raised.mdc-ripple-upgraded,
 .test .mdc-button--unelevated.mdc-ripple-upgraded {
-  --mdc-ripple-fg-opacity: 0.24;
+  --mdc-ripple-fg-opacity: var(--mdc-ripple-press-opacity, 0.24);
 }"
 `;
 
@@ -165074,6 +165114,13 @@ exports[`loader should work with the "material-components-web" package (dart-sas
 .test .mdc-button .mdc-button__ripple::before {
   transition: opacity 15ms linear, background-color 15ms linear;
   z-index: 1;
+  /* @alternate */
+  z-index: var(--mdc-ripple-z-index, 1);
+}
+.test .mdc-button .mdc-button__ripple::after {
+  z-index: 0;
+  /* @alternate */
+  z-index: var(--mdc-ripple-z-index, 0);
 }
 .test .mdc-button.mdc-ripple-upgraded .mdc-button__ripple::before {
   transform: scale(var(--mdc-ripple-fg-scale, 1));
@@ -165112,14 +165159,18 @@ exports[`loader should work with the "material-components-web" package (dart-sas
 .test .mdc-button .mdc-button__ripple::before, .test .mdc-button .mdc-button__ripple::after {
   background-color: #6200ee;
   /* @alternate */
-  background-color: var(--mdc-theme-primary, #6200ee);
+  background-color: var(--mdc-ripple-color, var(--mdc-theme-primary, #6200ee));
 }
-.test .mdc-button:hover .mdc-button__ripple::before {
+.test .mdc-button:hover .mdc-button__ripple::before, .test .mdc-button.mdc-ripple-surface--hover .mdc-button__ripple::before {
   opacity: 0.04;
+  /* @alternate */
+  opacity: var(--mdc-ripple-hover-opacity, 0.04);
 }
 .test .mdc-button.mdc-ripple-upgraded--background-focused .mdc-button__ripple::before, .test .mdc-button:not(.mdc-ripple-upgraded):focus .mdc-button__ripple::before {
   transition-duration: 75ms;
   opacity: 0.12;
+  /* @alternate */
+  opacity: var(--mdc-ripple-focus-opacity, 0.12);
 }
 .test .mdc-button:not(.mdc-ripple-upgraded) .mdc-button__ripple::after {
   transition: opacity 150ms linear;
@@ -165127,9 +165178,11 @@ exports[`loader should work with the "material-components-web" package (dart-sas
 .test .mdc-button:not(.mdc-ripple-upgraded):active .mdc-button__ripple::after {
   transition-duration: 75ms;
   opacity: 0.12;
+  /* @alternate */
+  opacity: var(--mdc-ripple-press-opacity, 0.12);
 }
 .test .mdc-button.mdc-ripple-upgraded {
-  --mdc-ripple-fg-opacity: 0.12;
+  --mdc-ripple-fg-opacity: var(--mdc-ripple-press-opacity, 0.12);
 }
 .test .mdc-button .mdc-button__ripple {
   position: absolute;
@@ -165147,17 +165200,22 @@ exports[`loader should work with the "material-components-web" package (dart-sas
 .test .mdc-button--unelevated .mdc-button__ripple::after {
   background-color: #fff;
   /* @alternate */
-  background-color: var(--mdc-theme-on-primary, #fff);
+  background-color: var(--mdc-ripple-color, var(--mdc-theme-on-primary, #fff));
 }
-.test .mdc-button--raised:hover .mdc-button__ripple::before,
-.test .mdc-button--unelevated:hover .mdc-button__ripple::before {
+.test .mdc-button--raised:hover .mdc-button__ripple::before, .test .mdc-button--raised.mdc-ripple-surface--hover .mdc-button__ripple::before,
+.test .mdc-button--unelevated:hover .mdc-button__ripple::before,
+.test .mdc-button--unelevated.mdc-ripple-surface--hover .mdc-button__ripple::before {
   opacity: 0.08;
+  /* @alternate */
+  opacity: var(--mdc-ripple-hover-opacity, 0.08);
 }
 .test .mdc-button--raised.mdc-ripple-upgraded--background-focused .mdc-button__ripple::before, .test .mdc-button--raised:not(.mdc-ripple-upgraded):focus .mdc-button__ripple::before,
 .test .mdc-button--unelevated.mdc-ripple-upgraded--background-focused .mdc-button__ripple::before,
 .test .mdc-button--unelevated:not(.mdc-ripple-upgraded):focus .mdc-button__ripple::before {
   transition-duration: 75ms;
   opacity: 0.24;
+  /* @alternate */
+  opacity: var(--mdc-ripple-focus-opacity, 0.24);
 }
 .test .mdc-button--raised:not(.mdc-ripple-upgraded) .mdc-button__ripple::after,
 .test .mdc-button--unelevated:not(.mdc-ripple-upgraded) .mdc-button__ripple::after {
@@ -165167,10 +165225,12 @@ exports[`loader should work with the "material-components-web" package (dart-sas
 .test .mdc-button--unelevated:not(.mdc-ripple-upgraded):active .mdc-button__ripple::after {
   transition-duration: 75ms;
   opacity: 0.24;
+  /* @alternate */
+  opacity: var(--mdc-ripple-press-opacity, 0.24);
 }
 .test .mdc-button--raised.mdc-ripple-upgraded,
 .test .mdc-button--unelevated.mdc-ripple-upgraded {
-  --mdc-ripple-fg-opacity: 0.24;
+  --mdc-ripple-fg-opacity: var(--mdc-ripple-press-opacity, 0.24);
 }"
 `;
 
@@ -165464,6 +165524,13 @@ exports[`loader should work with the "material-components-web" package (dart-sas
 .test .mdc-button .mdc-button__ripple::before {
   transition: opacity 15ms linear, background-color 15ms linear;
   z-index: 1;
+  /* @alternate */
+  z-index: var(--mdc-ripple-z-index, 1);
+}
+.test .mdc-button .mdc-button__ripple::after {
+  z-index: 0;
+  /* @alternate */
+  z-index: var(--mdc-ripple-z-index, 0);
 }
 .test .mdc-button.mdc-ripple-upgraded .mdc-button__ripple::before {
   transform: scale(var(--mdc-ripple-fg-scale, 1));
@@ -165502,14 +165569,18 @@ exports[`loader should work with the "material-components-web" package (dart-sas
 .test .mdc-button .mdc-button__ripple::before, .test .mdc-button .mdc-button__ripple::after {
   background-color: #6200ee;
   /* @alternate */
-  background-color: var(--mdc-theme-primary, #6200ee);
+  background-color: var(--mdc-ripple-color, var(--mdc-theme-primary, #6200ee));
 }
-.test .mdc-button:hover .mdc-button__ripple::before {
+.test .mdc-button:hover .mdc-button__ripple::before, .test .mdc-button.mdc-ripple-surface--hover .mdc-button__ripple::before {
   opacity: 0.04;
+  /* @alternate */
+  opacity: var(--mdc-ripple-hover-opacity, 0.04);
 }
 .test .mdc-button.mdc-ripple-upgraded--background-focused .mdc-button__ripple::before, .test .mdc-button:not(.mdc-ripple-upgraded):focus .mdc-button__ripple::before {
   transition-duration: 75ms;
   opacity: 0.12;
+  /* @alternate */
+  opacity: var(--mdc-ripple-focus-opacity, 0.12);
 }
 .test .mdc-button:not(.mdc-ripple-upgraded) .mdc-button__ripple::after {
   transition: opacity 150ms linear;
@@ -165517,9 +165588,11 @@ exports[`loader should work with the "material-components-web" package (dart-sas
 .test .mdc-button:not(.mdc-ripple-upgraded):active .mdc-button__ripple::after {
   transition-duration: 75ms;
   opacity: 0.12;
+  /* @alternate */
+  opacity: var(--mdc-ripple-press-opacity, 0.12);
 }
 .test .mdc-button.mdc-ripple-upgraded {
-  --mdc-ripple-fg-opacity: 0.12;
+  --mdc-ripple-fg-opacity: var(--mdc-ripple-press-opacity, 0.12);
 }
 .test .mdc-button .mdc-button__ripple {
   position: absolute;
@@ -165537,17 +165610,22 @@ exports[`loader should work with the "material-components-web" package (dart-sas
 .test .mdc-button--unelevated .mdc-button__ripple::after {
   background-color: #fff;
   /* @alternate */
-  background-color: var(--mdc-theme-on-primary, #fff);
+  background-color: var(--mdc-ripple-color, var(--mdc-theme-on-primary, #fff));
 }
-.test .mdc-button--raised:hover .mdc-button__ripple::before,
-.test .mdc-button--unelevated:hover .mdc-button__ripple::before {
+.test .mdc-button--raised:hover .mdc-button__ripple::before, .test .mdc-button--raised.mdc-ripple-surface--hover .mdc-button__ripple::before,
+.test .mdc-button--unelevated:hover .mdc-button__ripple::before,
+.test .mdc-button--unelevated.mdc-ripple-surface--hover .mdc-button__ripple::before {
   opacity: 0.08;
+  /* @alternate */
+  opacity: var(--mdc-ripple-hover-opacity, 0.08);
 }
 .test .mdc-button--raised.mdc-ripple-upgraded--background-focused .mdc-button__ripple::before, .test .mdc-button--raised:not(.mdc-ripple-upgraded):focus .mdc-button__ripple::before,
 .test .mdc-button--unelevated.mdc-ripple-upgraded--background-focused .mdc-button__ripple::before,
 .test .mdc-button--unelevated:not(.mdc-ripple-upgraded):focus .mdc-button__ripple::before {
   transition-duration: 75ms;
   opacity: 0.24;
+  /* @alternate */
+  opacity: var(--mdc-ripple-focus-opacity, 0.24);
 }
 .test .mdc-button--raised:not(.mdc-ripple-upgraded) .mdc-button__ripple::after,
 .test .mdc-button--unelevated:not(.mdc-ripple-upgraded) .mdc-button__ripple::after {
@@ -165557,10 +165635,12 @@ exports[`loader should work with the "material-components-web" package (dart-sas
 .test .mdc-button--unelevated:not(.mdc-ripple-upgraded):active .mdc-button__ripple::after {
   transition-duration: 75ms;
   opacity: 0.24;
+  /* @alternate */
+  opacity: var(--mdc-ripple-press-opacity, 0.24);
 }
 .test .mdc-button--raised.mdc-ripple-upgraded,
 .test .mdc-button--unelevated.mdc-ripple-upgraded {
-  --mdc-ripple-fg-opacity: 0.24;
+  --mdc-ripple-fg-opacity: var(--mdc-ripple-press-opacity, 0.24);
 }"
 `;
 
@@ -165862,6 +165942,13 @@ exports[`loader should work with the "material-components-web" package without t
 .test .mdc-button .mdc-button__ripple::before {
   transition: opacity 15ms linear, background-color 15ms linear;
   z-index: 1;
+  /* @alternate */
+  z-index: var(--mdc-ripple-z-index, 1);
+}
+.test .mdc-button .mdc-button__ripple::after {
+  z-index: 0;
+  /* @alternate */
+  z-index: var(--mdc-ripple-z-index, 0);
 }
 .test .mdc-button.mdc-ripple-upgraded .mdc-button__ripple::before {
   transform: scale(var(--mdc-ripple-fg-scale, 1));
@@ -165900,14 +165987,18 @@ exports[`loader should work with the "material-components-web" package without t
 .test .mdc-button .mdc-button__ripple::before, .test .mdc-button .mdc-button__ripple::after {
   background-color: #6200ee;
   /* @alternate */
-  background-color: var(--mdc-theme-primary, #6200ee);
+  background-color: var(--mdc-ripple-color, var(--mdc-theme-primary, #6200ee));
 }
-.test .mdc-button:hover .mdc-button__ripple::before {
+.test .mdc-button:hover .mdc-button__ripple::before, .test .mdc-button.mdc-ripple-surface--hover .mdc-button__ripple::before {
   opacity: 0.04;
+  /* @alternate */
+  opacity: var(--mdc-ripple-hover-opacity, 0.04);
 }
 .test .mdc-button.mdc-ripple-upgraded--background-focused .mdc-button__ripple::before, .test .mdc-button:not(.mdc-ripple-upgraded):focus .mdc-button__ripple::before {
   transition-duration: 75ms;
   opacity: 0.12;
+  /* @alternate */
+  opacity: var(--mdc-ripple-focus-opacity, 0.12);
 }
 .test .mdc-button:not(.mdc-ripple-upgraded) .mdc-button__ripple::after {
   transition: opacity 150ms linear;
@@ -165915,9 +166006,11 @@ exports[`loader should work with the "material-components-web" package without t
 .test .mdc-button:not(.mdc-ripple-upgraded):active .mdc-button__ripple::after {
   transition-duration: 75ms;
   opacity: 0.12;
+  /* @alternate */
+  opacity: var(--mdc-ripple-press-opacity, 0.12);
 }
 .test .mdc-button.mdc-ripple-upgraded {
-  --mdc-ripple-fg-opacity: 0.12;
+  --mdc-ripple-fg-opacity: var(--mdc-ripple-press-opacity, 0.12);
 }
 .test .mdc-button .mdc-button__ripple {
   position: absolute;
@@ -165935,17 +166028,22 @@ exports[`loader should work with the "material-components-web" package without t
 .test .mdc-button--unelevated .mdc-button__ripple::after {
   background-color: #fff;
   /* @alternate */
-  background-color: var(--mdc-theme-on-primary, #fff);
+  background-color: var(--mdc-ripple-color, var(--mdc-theme-on-primary, #fff));
 }
-.test .mdc-button--raised:hover .mdc-button__ripple::before,
-.test .mdc-button--unelevated:hover .mdc-button__ripple::before {
+.test .mdc-button--raised:hover .mdc-button__ripple::before, .test .mdc-button--raised.mdc-ripple-surface--hover .mdc-button__ripple::before,
+.test .mdc-button--unelevated:hover .mdc-button__ripple::before,
+.test .mdc-button--unelevated.mdc-ripple-surface--hover .mdc-button__ripple::before {
   opacity: 0.08;
+  /* @alternate */
+  opacity: var(--mdc-ripple-hover-opacity, 0.08);
 }
 .test .mdc-button--raised.mdc-ripple-upgraded--background-focused .mdc-button__ripple::before, .test .mdc-button--raised:not(.mdc-ripple-upgraded):focus .mdc-button__ripple::before,
 .test .mdc-button--unelevated.mdc-ripple-upgraded--background-focused .mdc-button__ripple::before,
 .test .mdc-button--unelevated:not(.mdc-ripple-upgraded):focus .mdc-button__ripple::before {
   transition-duration: 75ms;
   opacity: 0.24;
+  /* @alternate */
+  opacity: var(--mdc-ripple-focus-opacity, 0.24);
 }
 .test .mdc-button--raised:not(.mdc-ripple-upgraded) .mdc-button__ripple::after,
 .test .mdc-button--unelevated:not(.mdc-ripple-upgraded) .mdc-button__ripple::after {
@@ -165955,10 +166053,12 @@ exports[`loader should work with the "material-components-web" package without t
 .test .mdc-button--unelevated:not(.mdc-ripple-upgraded):active .mdc-button__ripple::after {
   transition-duration: 75ms;
   opacity: 0.24;
+  /* @alternate */
+  opacity: var(--mdc-ripple-press-opacity, 0.24);
 }
 .test .mdc-button--raised.mdc-ripple-upgraded,
 .test .mdc-button--unelevated.mdc-ripple-upgraded {
-  --mdc-ripple-fg-opacity: 0.24;
+  --mdc-ripple-fg-opacity: var(--mdc-ripple-press-opacity, 0.24);
 }"
 `;
 
@@ -166252,6 +166352,13 @@ exports[`loader should work with the "material-components-web" package without t
 .test .mdc-button .mdc-button__ripple::before {
   transition: opacity 15ms linear, background-color 15ms linear;
   z-index: 1;
+  /* @alternate */
+  z-index: var(--mdc-ripple-z-index, 1);
+}
+.test .mdc-button .mdc-button__ripple::after {
+  z-index: 0;
+  /* @alternate */
+  z-index: var(--mdc-ripple-z-index, 0);
 }
 .test .mdc-button.mdc-ripple-upgraded .mdc-button__ripple::before {
   transform: scale(var(--mdc-ripple-fg-scale, 1));
@@ -166290,14 +166397,18 @@ exports[`loader should work with the "material-components-web" package without t
 .test .mdc-button .mdc-button__ripple::before, .test .mdc-button .mdc-button__ripple::after {
   background-color: #6200ee;
   /* @alternate */
-  background-color: var(--mdc-theme-primary, #6200ee);
+  background-color: var(--mdc-ripple-color, var(--mdc-theme-primary, #6200ee));
 }
-.test .mdc-button:hover .mdc-button__ripple::before {
+.test .mdc-button:hover .mdc-button__ripple::before, .test .mdc-button.mdc-ripple-surface--hover .mdc-button__ripple::before {
   opacity: 0.04;
+  /* @alternate */
+  opacity: var(--mdc-ripple-hover-opacity, 0.04);
 }
 .test .mdc-button.mdc-ripple-upgraded--background-focused .mdc-button__ripple::before, .test .mdc-button:not(.mdc-ripple-upgraded):focus .mdc-button__ripple::before {
   transition-duration: 75ms;
   opacity: 0.12;
+  /* @alternate */
+  opacity: var(--mdc-ripple-focus-opacity, 0.12);
 }
 .test .mdc-button:not(.mdc-ripple-upgraded) .mdc-button__ripple::after {
   transition: opacity 150ms linear;
@@ -166305,9 +166416,11 @@ exports[`loader should work with the "material-components-web" package without t
 .test .mdc-button:not(.mdc-ripple-upgraded):active .mdc-button__ripple::after {
   transition-duration: 75ms;
   opacity: 0.12;
+  /* @alternate */
+  opacity: var(--mdc-ripple-press-opacity, 0.12);
 }
 .test .mdc-button.mdc-ripple-upgraded {
-  --mdc-ripple-fg-opacity: 0.12;
+  --mdc-ripple-fg-opacity: var(--mdc-ripple-press-opacity, 0.12);
 }
 .test .mdc-button .mdc-button__ripple {
   position: absolute;
@@ -166325,17 +166438,22 @@ exports[`loader should work with the "material-components-web" package without t
 .test .mdc-button--unelevated .mdc-button__ripple::after {
   background-color: #fff;
   /* @alternate */
-  background-color: var(--mdc-theme-on-primary, #fff);
+  background-color: var(--mdc-ripple-color, var(--mdc-theme-on-primary, #fff));
 }
-.test .mdc-button--raised:hover .mdc-button__ripple::before,
-.test .mdc-button--unelevated:hover .mdc-button__ripple::before {
+.test .mdc-button--raised:hover .mdc-button__ripple::before, .test .mdc-button--raised.mdc-ripple-surface--hover .mdc-button__ripple::before,
+.test .mdc-button--unelevated:hover .mdc-button__ripple::before,
+.test .mdc-button--unelevated.mdc-ripple-surface--hover .mdc-button__ripple::before {
   opacity: 0.08;
+  /* @alternate */
+  opacity: var(--mdc-ripple-hover-opacity, 0.08);
 }
 .test .mdc-button--raised.mdc-ripple-upgraded--background-focused .mdc-button__ripple::before, .test .mdc-button--raised:not(.mdc-ripple-upgraded):focus .mdc-button__ripple::before,
 .test .mdc-button--unelevated.mdc-ripple-upgraded--background-focused .mdc-button__ripple::before,
 .test .mdc-button--unelevated:not(.mdc-ripple-upgraded):focus .mdc-button__ripple::before {
   transition-duration: 75ms;
   opacity: 0.24;
+  /* @alternate */
+  opacity: var(--mdc-ripple-focus-opacity, 0.24);
 }
 .test .mdc-button--raised:not(.mdc-ripple-upgraded) .mdc-button__ripple::after,
 .test .mdc-button--unelevated:not(.mdc-ripple-upgraded) .mdc-button__ripple::after {
@@ -166345,10 +166463,12 @@ exports[`loader should work with the "material-components-web" package without t
 .test .mdc-button--unelevated:not(.mdc-ripple-upgraded):active .mdc-button__ripple::after {
   transition-duration: 75ms;
   opacity: 0.24;
+  /* @alternate */
+  opacity: var(--mdc-ripple-press-opacity, 0.24);
 }
 .test .mdc-button--raised.mdc-ripple-upgraded,
 .test .mdc-button--unelevated.mdc-ripple-upgraded {
-  --mdc-ripple-fg-opacity: 0.24;
+  --mdc-ripple-fg-opacity: var(--mdc-ripple-press-opacity, 0.24);
 }"
 `;
 
@@ -166650,6 +166770,13 @@ exports[`loader should work with the "material-components-web" package without t
 .test .mdc-button .mdc-button__ripple::before {
   transition: opacity 15ms linear, background-color 15ms linear;
   z-index: 1;
+  /* @alternate */
+  z-index: var(--mdc-ripple-z-index, 1);
+}
+.test .mdc-button .mdc-button__ripple::after {
+  z-index: 0;
+  /* @alternate */
+  z-index: var(--mdc-ripple-z-index, 0);
 }
 .test .mdc-button.mdc-ripple-upgraded .mdc-button__ripple::before {
   transform: scale(var(--mdc-ripple-fg-scale, 1));
@@ -166688,14 +166815,18 @@ exports[`loader should work with the "material-components-web" package without t
 .test .mdc-button .mdc-button__ripple::before, .test .mdc-button .mdc-button__ripple::after {
   background-color: #6200ee;
   /* @alternate */
-  background-color: var(--mdc-theme-primary, #6200ee);
+  background-color: var(--mdc-ripple-color, var(--mdc-theme-primary, #6200ee));
 }
-.test .mdc-button:hover .mdc-button__ripple::before {
+.test .mdc-button:hover .mdc-button__ripple::before, .test .mdc-button.mdc-ripple-surface--hover .mdc-button__ripple::before {
   opacity: 0.04;
+  /* @alternate */
+  opacity: var(--mdc-ripple-hover-opacity, 0.04);
 }
 .test .mdc-button.mdc-ripple-upgraded--background-focused .mdc-button__ripple::before, .test .mdc-button:not(.mdc-ripple-upgraded):focus .mdc-button__ripple::before {
   transition-duration: 75ms;
   opacity: 0.12;
+  /* @alternate */
+  opacity: var(--mdc-ripple-focus-opacity, 0.12);
 }
 .test .mdc-button:not(.mdc-ripple-upgraded) .mdc-button__ripple::after {
   transition: opacity 150ms linear;
@@ -166703,9 +166834,11 @@ exports[`loader should work with the "material-components-web" package without t
 .test .mdc-button:not(.mdc-ripple-upgraded):active .mdc-button__ripple::after {
   transition-duration: 75ms;
   opacity: 0.12;
+  /* @alternate */
+  opacity: var(--mdc-ripple-press-opacity, 0.12);
 }
 .test .mdc-button.mdc-ripple-upgraded {
-  --mdc-ripple-fg-opacity: 0.12;
+  --mdc-ripple-fg-opacity: var(--mdc-ripple-press-opacity, 0.12);
 }
 .test .mdc-button .mdc-button__ripple {
   position: absolute;
@@ -166723,17 +166856,22 @@ exports[`loader should work with the "material-components-web" package without t
 .test .mdc-button--unelevated .mdc-button__ripple::after {
   background-color: #fff;
   /* @alternate */
-  background-color: var(--mdc-theme-on-primary, #fff);
+  background-color: var(--mdc-ripple-color, var(--mdc-theme-on-primary, #fff));
 }
-.test .mdc-button--raised:hover .mdc-button__ripple::before,
-.test .mdc-button--unelevated:hover .mdc-button__ripple::before {
+.test .mdc-button--raised:hover .mdc-button__ripple::before, .test .mdc-button--raised.mdc-ripple-surface--hover .mdc-button__ripple::before,
+.test .mdc-button--unelevated:hover .mdc-button__ripple::before,
+.test .mdc-button--unelevated.mdc-ripple-surface--hover .mdc-button__ripple::before {
   opacity: 0.08;
+  /* @alternate */
+  opacity: var(--mdc-ripple-hover-opacity, 0.08);
 }
 .test .mdc-button--raised.mdc-ripple-upgraded--background-focused .mdc-button__ripple::before, .test .mdc-button--raised:not(.mdc-ripple-upgraded):focus .mdc-button__ripple::before,
 .test .mdc-button--unelevated.mdc-ripple-upgraded--background-focused .mdc-button__ripple::before,
 .test .mdc-button--unelevated:not(.mdc-ripple-upgraded):focus .mdc-button__ripple::before {
   transition-duration: 75ms;
   opacity: 0.24;
+  /* @alternate */
+  opacity: var(--mdc-ripple-focus-opacity, 0.24);
 }
 .test .mdc-button--raised:not(.mdc-ripple-upgraded) .mdc-button__ripple::after,
 .test .mdc-button--unelevated:not(.mdc-ripple-upgraded) .mdc-button__ripple::after {
@@ -166743,10 +166881,12 @@ exports[`loader should work with the "material-components-web" package without t
 .test .mdc-button--unelevated:not(.mdc-ripple-upgraded):active .mdc-button__ripple::after {
   transition-duration: 75ms;
   opacity: 0.24;
+  /* @alternate */
+  opacity: var(--mdc-ripple-press-opacity, 0.24);
 }
 .test .mdc-button--raised.mdc-ripple-upgraded,
 .test .mdc-button--unelevated.mdc-ripple-upgraded {
-  --mdc-ripple-fg-opacity: 0.24;
+  --mdc-ripple-fg-opacity: var(--mdc-ripple-press-opacity, 0.24);
 }"
 `;
 
@@ -167040,6 +167180,13 @@ exports[`loader should work with the "material-components-web" package without t
 .test .mdc-button .mdc-button__ripple::before {
   transition: opacity 15ms linear, background-color 15ms linear;
   z-index: 1;
+  /* @alternate */
+  z-index: var(--mdc-ripple-z-index, 1);
+}
+.test .mdc-button .mdc-button__ripple::after {
+  z-index: 0;
+  /* @alternate */
+  z-index: var(--mdc-ripple-z-index, 0);
 }
 .test .mdc-button.mdc-ripple-upgraded .mdc-button__ripple::before {
   transform: scale(var(--mdc-ripple-fg-scale, 1));
@@ -167078,14 +167225,18 @@ exports[`loader should work with the "material-components-web" package without t
 .test .mdc-button .mdc-button__ripple::before, .test .mdc-button .mdc-button__ripple::after {
   background-color: #6200ee;
   /* @alternate */
-  background-color: var(--mdc-theme-primary, #6200ee);
+  background-color: var(--mdc-ripple-color, var(--mdc-theme-primary, #6200ee));
 }
-.test .mdc-button:hover .mdc-button__ripple::before {
+.test .mdc-button:hover .mdc-button__ripple::before, .test .mdc-button.mdc-ripple-surface--hover .mdc-button__ripple::before {
   opacity: 0.04;
+  /* @alternate */
+  opacity: var(--mdc-ripple-hover-opacity, 0.04);
 }
 .test .mdc-button.mdc-ripple-upgraded--background-focused .mdc-button__ripple::before, .test .mdc-button:not(.mdc-ripple-upgraded):focus .mdc-button__ripple::before {
   transition-duration: 75ms;
   opacity: 0.12;
+  /* @alternate */
+  opacity: var(--mdc-ripple-focus-opacity, 0.12);
 }
 .test .mdc-button:not(.mdc-ripple-upgraded) .mdc-button__ripple::after {
   transition: opacity 150ms linear;
@@ -167093,9 +167244,11 @@ exports[`loader should work with the "material-components-web" package without t
 .test .mdc-button:not(.mdc-ripple-upgraded):active .mdc-button__ripple::after {
   transition-duration: 75ms;
   opacity: 0.12;
+  /* @alternate */
+  opacity: var(--mdc-ripple-press-opacity, 0.12);
 }
 .test .mdc-button.mdc-ripple-upgraded {
-  --mdc-ripple-fg-opacity: 0.12;
+  --mdc-ripple-fg-opacity: var(--mdc-ripple-press-opacity, 0.12);
 }
 .test .mdc-button .mdc-button__ripple {
   position: absolute;
@@ -167113,17 +167266,22 @@ exports[`loader should work with the "material-components-web" package without t
 .test .mdc-button--unelevated .mdc-button__ripple::after {
   background-color: #fff;
   /* @alternate */
-  background-color: var(--mdc-theme-on-primary, #fff);
+  background-color: var(--mdc-ripple-color, var(--mdc-theme-on-primary, #fff));
 }
-.test .mdc-button--raised:hover .mdc-button__ripple::before,
-.test .mdc-button--unelevated:hover .mdc-button__ripple::before {
+.test .mdc-button--raised:hover .mdc-button__ripple::before, .test .mdc-button--raised.mdc-ripple-surface--hover .mdc-button__ripple::before,
+.test .mdc-button--unelevated:hover .mdc-button__ripple::before,
+.test .mdc-button--unelevated.mdc-ripple-surface--hover .mdc-button__ripple::before {
   opacity: 0.08;
+  /* @alternate */
+  opacity: var(--mdc-ripple-hover-opacity, 0.08);
 }
 .test .mdc-button--raised.mdc-ripple-upgraded--background-focused .mdc-button__ripple::before, .test .mdc-button--raised:not(.mdc-ripple-upgraded):focus .mdc-button__ripple::before,
 .test .mdc-button--unelevated.mdc-ripple-upgraded--background-focused .mdc-button__ripple::before,
 .test .mdc-button--unelevated:not(.mdc-ripple-upgraded):focus .mdc-button__ripple::before {
   transition-duration: 75ms;
   opacity: 0.24;
+  /* @alternate */
+  opacity: var(--mdc-ripple-focus-opacity, 0.24);
 }
 .test .mdc-button--raised:not(.mdc-ripple-upgraded) .mdc-button__ripple::after,
 .test .mdc-button--unelevated:not(.mdc-ripple-upgraded) .mdc-button__ripple::after {
@@ -167133,10 +167291,12 @@ exports[`loader should work with the "material-components-web" package without t
 .test .mdc-button--unelevated:not(.mdc-ripple-upgraded):active .mdc-button__ripple::after {
   transition-duration: 75ms;
   opacity: 0.24;
+  /* @alternate */
+  opacity: var(--mdc-ripple-press-opacity, 0.24);
 }
 .test .mdc-button--raised.mdc-ripple-upgraded,
 .test .mdc-button--unelevated.mdc-ripple-upgraded {
-  --mdc-ripple-fg-opacity: 0.24;
+  --mdc-ripple-fg-opacity: var(--mdc-ripple-press-opacity, 0.24);
 }"
 `;
 
