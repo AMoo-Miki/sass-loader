@@ -1,23 +1,17 @@
-<div align="center">
-  <img height="100"
-    src="https://worldvectorlogo.com/logos/sass-1.svg">
-  <a href="https://github.com/webpack/webpack">
-    <img width="200" height="200"
-      src="https://webpack.js.org/assets/icon-square-big.svg">
-  </a>
-</div>
-
-[![npm][npm]][npm-url]
-[![node][node]][node-url]
-[![deps][deps]][deps-url]
-[![tests][tests]][tests-url]
-[![coverage][cover]][cover-url]
-[![chat][chat]][chat-url]
-[![size][size]][size-url]
-
-# sass-loader
+# @amoo-miki/sass-loader
 
 Loads a Sass/SCSS file and compiles it to CSS.
+
+This is a fork of [`sass-loader@10.4.1`](https://github.com/webpack-contrib/sass-loader/releases/tag/v10.4.1) with support for `node-sass@9` and mainly created to be used with [`@amoo-miki/node-sass@9.0.0-libsass-3.6.5`](https://www.npmjs.com/package/@amoo-miki/node-sass).
+
+The easiest way to use this is by updating the `package.json` with:
+```json
+"devDependencies": {
+  "node-sass": "npm:@amoo-miki/node-sass@9.0.0-libsass-3.6.5",
+  "sass-loader": "npm:@amoo-miki/sass-loader@10.4.1-node-sass-9.0.0-libsass-3.6.5"
+}
+```
+
 
 ## Getting Started
 

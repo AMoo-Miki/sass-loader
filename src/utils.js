@@ -74,13 +74,13 @@ function getSassImplementation(loaderContext, implementation) {
   } else if (implementationName === "node-sass") {
     if (
       !semver.satisfies(
-        version,
-        "^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0"
+        semver.coerce(version),
+        "^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0"
       )
     ) {
       loaderContext.emitError(
         new Error(
-          `Node Sass version ${version} is incompatible with ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0.`
+          `Node Sass version ${version} is incompatible with ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0.`
         )
       );
     }
